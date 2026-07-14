@@ -1,0 +1,8 @@
+[submodule "plugins/fossil-solver"]
+	path = plugins/fossil-solver
+	url = https://github.com/timelesclock/ef2-fossil-solver.git
+	branch = mobile-overlay-edit
+[submodule "plugins/session-history"]
+	path = plugins/session-history
+	url = https://github.com/timelesclock/ef2-session-history.git
+	branch = mobile-overlay-edit

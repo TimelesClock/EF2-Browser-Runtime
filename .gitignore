@@ -5,6 +5,3 @@ venv/
 env/
 ENV/
 runtime/bundles/
-# Plugin repos are added as git submodules after forking (see README).
-/plugins/fossil-solver/
-/plugins/session-history/
