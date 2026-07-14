@@ -1,4 +1,3 @@
-import { installDraggableWindow } from "./draggableWindow.js";
 import { bindGeneralSettingsControls, renderGeneralPanel } from "./generalPanel.js";
 import {
     bindPluginVisibilityControls,
@@ -383,5 +382,4 @@ ${renderPluginPanel(pluginItems)}
     syncPluginVisibility(pluginInputs, pluginVisibility);
     document.body.appendChild(node);
     observePluginOverlayVisibility(pluginVisibility);
-    installDraggableWindow(node, header, RUNTIME_MENU_POSITION_STORAGE_KEY);
 }

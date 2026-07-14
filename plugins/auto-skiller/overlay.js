@@ -229,6 +229,9 @@ function ensureStyle() {
   appearance: textfield;
   -moz-appearance: textfield;
 }
+#${OVERLAY_ID} .ef-auto-skiller-resize {
+  display: none !important;
+}
 `;
     document.head.appendChild(style);
 }
@@ -581,7 +584,7 @@ export function createAutoSkillerOverlay() {
     let lastListHtml = "";
 
     document.body.appendChild(node);
-    installDraggableWindow(node, header, "__EF_AUTO_SKILLER_POSITION__");
+    node.dataset.efPluginOverlay = "auto-skiller";
 
     function setCollapsed(nextCollapsed) {
         collapsed = !!nextCollapsed;
@@ -628,7 +631,6 @@ export function createAutoSkillerOverlay() {
         list.innerHTML = lastListHtml;
     }
     setCollapsed(readBooleanPreference(COLLAPSED_STORAGE_KEY, false));
-    installResizableWindow(node, resizeHandle, SIZE_STORAGE_KEY, { minWidth: 230, minHeight: 220 });
 
     return {
         setScanning(message = "Scanning...") {

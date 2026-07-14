@@ -1,7 +1,7 @@
 import { ensureBrowserGlobals } from "./globals.js";
 import { callGameStart, loadCssFile, loadManifest, loadModule } from "./loader.js";
 import { createPluginRuntime, installRuntimePlugins } from "./plugin-api/index.js";
-import { installRuntimeMenu, setLoaderState, setStatus, showError } from "./ui.js";
+import { installRuntimeMenu, installOverlayEditMode, setLoaderState, setStatus, showError } from "./ui.js";
 import { installVirtualViewport } from "./virtualViewport.js";
 
 async function waitForSplashFirstPaint() {
@@ -49,6 +49,7 @@ async function bootstrapRuntime() {
     window.__EF_PLUGIN_RUNTIME__ = runtime;
     const pluginHandles = await installRuntimePlugins(runtime);
     installRuntimeMenu(pluginHandles.__plugins || []);
+    installOverlayEditMode();
 
     setLoaderState("loading-module");
     setStatus("Loading game module...");

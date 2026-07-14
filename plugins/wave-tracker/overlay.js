@@ -207,6 +207,9 @@ function ensureStyle() {
 #${OVERLAY_ID} .ef-wave-hidden {
   display: none !important;
 }
+#${OVERLAY_ID} .ef-wave-resize {
+  display: none !important;
+}
 `;
     document.head.appendChild(style);
 }
@@ -629,9 +632,8 @@ export function createWaveOverlay() {
     setStatusVisible(true);
     renderStatus("Status", "scanning");
     document.body.appendChild(node);
-    installDraggableWindow(node, header, "__EF_WAVE_TRACKER_POSITION__");
+    node.dataset.efPluginOverlay = "wave-tracker";
     syncMinimizedState();
-    installResizableWindow(node, resizeHandle, SIZE_STORAGE_KEY, { minWidth: 220, minHeight: 180 });
 
     return {
         setScanning() {
